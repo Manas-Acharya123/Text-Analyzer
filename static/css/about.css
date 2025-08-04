@@ -1,0 +1,81 @@
+.about-section {
+    width: 100%;
+    height: 125vh;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+    align-items: center;
+    padding: 4rem;
+    box-sizing: border-box;
+}
+
+p{
+    font-size: 20px;
+}
+
+.mentor h2{
+    text-align: center;
+}
+
+.mentor a {
+    margin-bottom: 20px;
+}
+
+.mentor a:hover {
+    color: rgba(0, 0, 0, 0.53);
+    font-size: 35px;
+}
+
+.contributors h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
+.contributor {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.contributor img{
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+} 
+
+table {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    border-collapse: collapse;
+    width: 900px;
+}
+
+tr {
+    transition: all .2s ease-in;
+    cursor: pointer;
+    float: left;
+    width: 33%;
+    padding-right: 10px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    transform: scale(1.02);
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+}
+
+.contributor:hover a{
+    color: var(--primary-color);
+}

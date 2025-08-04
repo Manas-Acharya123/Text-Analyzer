@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% block content %}  
+
+{% load static %}
+
+{% if findWord %}
+<style>
+  #copy_icon{
+    display: none;
+  }
+  #set{
+  	text-align: center;
+  	padding: 1rem;
+  	margin-top: -6rem;
+  }
+
+</style>
+{% endif %}
+
+<link rel="stylesheet" href="{% static 'css/analyze.css' %}">
+
+<section class="analyze-result">
+
+  <h1 class="header">Text Analyzed Successfully 🎉</h1>
+<p>You chose : {{purpose}}</p>
+<h3>Result : </h3>
+
+{% if highlight %}
+<h4> {{ highlight }} </h4>
+{% endif %}
+
+<p><pre id="analyzed_text"> {{analyzed_text|safe}}</pre></p>
+<hr />
+
+{% if synonym %}
+    <h3 id="set"> Synonms/Example : {{ synonym }} </h3>
+{% endif %}
+
+{% if my_wordcloud %}
+    <img src='{{ my_wordcloud }}' style="margin-top: -8rem; margin-bottom:3rem;"/>
+{% endif %}
+
+{% if bar_graph %}
+    <img src='{{ bar_graph|safe}}'' width="800" height="500" style="margin-top: -11rem; margin-bottom:3rem;"/>
+{% endif %}
+
+{% if grammar %}
+    <h3 style="margin-top: -5rem;">Original Text : {{ grammar }} </h3>
+{% endif %}
+
+<i class="fa fa-clone" id="copy_icon" onclick="copyToClipboard('analyzed_text')">
+    <span class="popuptext" id="myPopup">Copy</span>
+  </i>
+
+{% if status %}
+    <h4> Status : {{ status }} </h4>
+
+    {% if find_image %}
+    <a href="gallery/"><button>Results</button></a>
+    {% endif %}
+
+    {% if find_channel %}
+    <a href="youtube/"><button>Results</button></a>
+    {% endif %}
+
+    {% if find_books %}
+    <a href="books/"><button>Results</button></a>
+    {% endif %}
+    
+    {% if find_articles %}
+    <a href="articles/"><button>Results</button></a>
+    {% endif %}
+
+    {% if make_pdf %}
+    <a href="{% url 'pdf-view' %}"><button>pdf</button></a>
+    {% endif %}
+
+{% endif %}
+
+<p class="text-muted mt-2"> Words : {{ wordcount }}</p>
+
+{% if analyze_text %}
+<a href="/index"><button>Back</button></a>
+{% endif %}
+
+{% if generate_text %}
+<a href="/index2"><button>Back</button></a>
+{% endif %}
+
+</section>
+
+
+{% endblock %}
+

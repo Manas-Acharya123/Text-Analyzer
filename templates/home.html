@@ -1,0 +1,157 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+<section class="header" >
+
+    <div class="container-fluid">
+ 
+        <div class="row">
+
+            <div class="col-md-6 header__left">
+                <div class="content">
+                    <h4>Easy way to analyze your text.</h4>
+                    <p>This is an open source project managed by <a href="https://www.linkedin.com/in/rohit-kumar-saini/" target="_blank"> <u> Rohit Saini </u> </a>.</p>
+                </div>
+
+                <div class="buttons">
+                    <a id="btn1" href="/index"> Analyze </a>
+                    <a id="btn2" href="/index2"> Generate </a>
+                </div>
+            </div>
+
+            <div class="col-md-6 header__right">
+                <p>T. </p>
+            </div>
+
+        </div>
+    </div>
+
+    <span class="skewOne"></span>
+    <span class="skewTwo"></span>
+
+</section>
+
+<section class="services">
+
+    <div class="top">
+        
+
+        <div class="icons">
+            <hr>
+            <h3> Services </h3>
+            <hr>
+        </div>
+    </div>
+
+    <div class="cards">
+        
+        <div class="card-s generate-password">
+            <h3> Generate Password </h3>
+            <hr>
+            <div class="desc">
+                <p> Generate a random password by entering some text. </p>
+            </div>
+            
+
+            <a href="/index2"> GO </a>
+        </div>
+
+        <div class="card-s sentiment-analysis">
+            <h3> Sentiment Anaysis </h3>
+            <hr>
+            
+            <div class="desc">
+                <p> Analyze the sentiments of any text given by you. </p>
+            </div>
+
+            <a href="/index"> GO </a>
+        </div>
+
+        <div class="card-s search-images">
+            <h3> Search Images </h3>
+            <hr>
+            
+            <div class="desc">
+                <p> Search images for any word entered by you. </p>
+            </div>
+
+            <a href="/index2"> GO </a>
+        </div>
+
+    </div>
+
+
+</section>
+
+<!-- contact-us section -->
+<section class="contact">
+    <div class="top">
+        
+
+        <div class="icons">
+            <hr>
+            <h3> Get in Touch </h3>
+            <hr>
+        </div>
+    </div>
+
+   <form action="contact" method="post" name="myform" class="contact-form" onsubmit="return validateform()">{% csrf_token %}
+        <div class="parent-user-form">
+            <div class="child-user-form user-name"><input type="text" name="name" id="name" class="base-form nameZone" placeholder="Your Full Name">
+            </div>
+            <div class="child-user-form user-email"><input type="email" name="email" id="email" class="base-form emailZone" placeholder="Your Email">
+            </div>
+        </div>
+
+        <textarea class="base-form messageZone" name="message" id="message" placeholder="Message"></textarea>
+        <input type="submit" value="Send Message" class="base-form btn">
+    </form>
+</section>
+
+<script type="text/javascript">
+    
+    const skewOne = document.querySelector(".skewOne");
+    const skewTwo = document.querySelector(".skewTwo");
+
+    window.addEventListener("scroll", () => {
+        const val1 = -15 + window.scrollY / 45;
+        const val2 = 15 + window.scrollY / -45;
+        skewOne.style.transform = `skewY(${val1}deg)`;
+        skewTwo.style.transform = `skewY(${val2}deg)`;
+    })
+
+    function validateform() {
+        var name = document.myform.name.value;
+        var email = document.myform.email.value;
+        var message = document.myform.message.value;
+        
+        if (name == null || name == "") {
+            alert('Invalid Name');
+            return false;
+        } else if (email == null || email == "") {
+            alert('Invalid Email Id');
+            return false;
+        } else if (message == "" || message == null) {
+            alert('Please Write Something in the Message');
+            return false;
+        } else  {
+            alert('Your query is submitted successfully.');
+            return true;
+        }
+        
+    }
+
+</script>
+
+{% endblock %}
+
+
+<!-- <div class="foo">
+    <h5></h5>
+    <h6 style="color: red"><b>-Dr. APJ Abdul Kalam</b></h6>
+</div> -->

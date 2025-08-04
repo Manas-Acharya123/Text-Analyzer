@@ -1,0 +1,274 @@
+.header {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: var(--primary-color);
+    padding: 4rem;
+    overflow: hidden;
+}
+
+.content {
+    color: var(--secondary-color);
+    margin-top: 10rem;
+}
+
+.content h4{
+    font-size: 2rem;
+}
+
+.content p{
+    color: var(--secondary-color);
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+.buttons {
+    display: flex;
+    margin-top: 5rem;
+}
+
+.buttons a:nth-child(1){
+    border: 2px solid var(--secondary-color);
+    padding: 10px 20px;
+    color: var(--secondary-color);
+    font-weight: bold;
+    border-radius: 0.3rem;
+    transition: 0.5s;
+}
+
+.buttons a:nth-child(1):hover {
+    color: var(--primary-color);
+    background: var(--secondary-color);
+    border: 2px solid var(--secondary-color); 
+    transform: scale(0.95,0.95);
+}
+
+
+.buttons a:nth-child(2){
+    background-color: var(--secondary-color);
+    border: 2px solid var(--secondary-color); 
+    color: var(--primary-color);
+    padding: 12px 20px;
+    margin-left: 10px;
+    font-weight: bold;
+    border-radius: 0.3rem;
+    transition: 0.5s;
+}
+
+.buttons a:nth-child(2):hover{
+    background: transparent;
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color); 
+    transform: scale(0.95,0.95);
+}
+
+.header__right p{
+    color: var(--secondary-color);
+    font-size: 25rem;
+    font-weight: 700;
+    animation: skew 3s infinite alternate;
+}
+
+@media screen and (max-width: 768px) {
+    .header__right, .header__left, .buttons{
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .header__left .content{
+        margin-top: 5rem;
+    }
+
+    .header__right p{
+        font-size: 15rem;
+        font-weight: 600;
+        /* margin-left: 2rem; */
+    }
+}
+
+@keyframes skew {
+    0% {
+      transform: skew(3deg, 3deg) translate(10px,30px) scale(0.8,0.8);
+      color: grey;
+    }
+    50%{
+        transform: skew(0deg, 0deg) scale(1,1);
+        color: white;
+    }
+    100% {
+      transform: skew(-3deg, -3deg) translate(-10px,-50px) scale(0.8,0.8);
+      color: grey;
+    }
+  }
+
+.services, .contact {
+    width: 100%;
+    /* height: 100vh; */
+    padding-top: 3rem;
+    background: var(--secondary-color);
+}
+
+.services .top .icons, .contact .top .icons {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 5px;
+}
+
+.services .top h3, .contact .top h3 {
+    text-align: center;
+    font-weight: 600;
+    font-size: 3rem;
+}
+
+.services .top .icons i, .contact .top .icons i {
+    padding: 0 10px;
+    font-size: 2rem;
+}
+
+.services .top .icons hr, .contact .top .icons hr {
+    width: 10rem;
+    height: 1px;
+    color: var(--primary-color);
+}
+
+.cards { 
+    height: 60%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 5rem;
+    flex-wrap: wrap;
+}
+
+.card-s {
+    width: 300px;
+    height: 400px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 10px;
+    text-align: center;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    display: block;
+    transition: 0.3s ;
+    border-radius: 1.5rem;
+}
+
+.card-s:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 10px 6px 20px 10px rgba(0, 0, 0, 0.2), 10px 6px 20px 10px rgba(0, 0, 0, 0.19);
+}
+
+.card-s h3{
+    font-size: 1.5rem;
+    padding: 10px;
+}
+
+.card-s .desc {
+    height: 70%;
+    padding: 50px;
+    font-size: large;
+    font-weight: 100;
+}
+
+.card-s a{
+    background-color: var(--secondary-color);
+    border: 2px solid var(--secondary-color); 
+    padding: 5px 35px;
+    color: var(--primary-color);
+    border-radius: 0.3rem;
+    font-weight: bold;
+    transition: 0.4s;
+}
+
+.card-s a:hover{
+    background: transparent;
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color); 
+}
+
+/* contact-us */
+.contact-form{
+    width: 100%;
+    margin: auto;
+    padding: 0 40px;
+    margin-top: 50px;
+}
+
+/*common style class*/
+.base-form{
+    width: 100%;
+    height: 50px;
+    margin: 10px 0;
+    background-color: var(--primary-color);
+    border: none;
+    outline: none;
+    padding: 20px;
+    border-radius: 4px;
+    color: var(--secondary-color);
+}
+
+/*isolates forms in div for easier styling.*/
+.parent-user-form{
+    display: table;
+    width: 100%;
+}
+
+/*makes the forms go side by side*/
+.child-user-form{
+    display: table-cell;
+}
+
+/*styles for name*/
+.user-name{
+    padding-right: 10px;
+}
+
+/*Required for aligning email field to end of message field*/
+.user-email{
+    padding-left: 10px;
+}
+
+.messageZone{
+    min-height: 200px;
+    resize: vertical;
+}
+
+.contact-form .btn{
+    width: 180px;
+    padding: 10px 20px;
+    color: var(--secondary-color);
+    font-weight: bold;
+    font-size: 16px;
+    margin-left: auto;
+    cursor: pointer;
+    transition: .3s linear;
+}
+
+.contact-form .btn:hover{
+    transform: scale(1.04);
+}
+
+.skewOne {
+    display: block;
+    position: absolute;
+    bottom: -100%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: var(--secondary-color);
+    transform: skewY(-15deg);
+    transform-origin: top left;
+}
+
+
+.skewTwo {
+    position: absolute;
+    bottom: -100%;
+    right: 50%;
+    width: 100%;
+    height: 100%;
+    background: var(--secondary-color);
+    transform: skewY(15deg);
+    transform-origin: top right;
+}

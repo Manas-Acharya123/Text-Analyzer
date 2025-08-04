@@ -1,0 +1,52 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<link rel="stylesheet" href="{% static 'css/about.css' %}" />
+
+<section class="about-section">
+  <p>
+    <b>W</b><i>e are the makers/contributors of this project text analyzer where
+    you can perform operations like capitalize, transform to lowercase/uppercase
+    and remove punctuation. This is created using Python Django. It is
+    completely open source hence you too can contribute anything to this project
+    if you want. All your new ideas are welcome here, we will implement it
+    together.</i>
+  </p>
+
+  <div class="mentor">
+    <h2>Our mentor</h2>
+    <a href="https://github.com/rockingrohit9639" target="_blank"><h1> Rohit Kumar Saini </h1></a>
+    <hr>
+  </div>
+
+  <div class="contributors">
+    <h2>Our Contributors</h2>
+
+    <div id="contributorsLlist">
+      {% if userData %}
+      <table>
+          {% for data in userData %}
+          <tr>
+            <td>
+              <div class="contributor">
+                <img
+                  src="{{ data.avatar_url }}"
+                  class="rounded-circle"
+                  alt="avatar"
+                />
+                <a href="{{ data.html_url }}"
+                class="user-names"
+                target="_blank"
+                  ><p>{{ data.login }}</p>
+                  <p></p
+                ></a>
+              </div>
+            </td>
+          </tr>
+          {% endfor %}
+      </table>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% endblock content %}
